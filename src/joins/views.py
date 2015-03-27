@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 
 # Create your views here.
 from .forms import EmailForm, JoinForm
@@ -26,13 +26,6 @@ def get_ref_id():
 		return ref_id
 
 def home(request):
-	# This is using regular django forms
-	# form = EmailForm(request.POST or None)
-	# if form.is_valid():
-	# 	email = form.cleanded_data['email']
-	# 	new_join, created = Join.objects.get_or_create(email=email)
-	
-	# This is using model forms
 	form = JoinForm(request.POST or None)
 	if form.is_valid():
 		new_join = form.save(commit=False)
@@ -42,11 +35,16 @@ def home(request):
 			new_join_old.ref_id = get_ref_id()
 			new_join_old.ip_address = get_ip(request)
 			new_join_old.save()
-		# redirect here
-
-		# new_join.ip_address = get_ip(request)
-		# new_join.save()
+		# redirect here 
+		return HttpResponseRedirect("/%s" %new_join_old.ref_id)
 
 	context = {"form": form}
 	template = "home.html"
+	return render(request, template, context,)
+
+
+
+def share(request, ref_id):
+	context = {"ref_id": ref_id}
+	template = "share.html"
 	return render(request, template, context,)
