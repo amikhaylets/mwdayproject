@@ -4,6 +4,7 @@ from django.db import models
 class Join(models.Model):
 	"""run models app"""
 	email = models.EmailField()
+	friend = models.ForeignKey("self", related_name='referral', null=True, blank=True)
 	ref_id = models.CharField(max_length=120, default='Default_value', unique=True)
 	ip_address = models.CharField(max_length=120, default='Default_value')
 	timestamp = models.DateTimeField(auto_now_add = True, auto_now = False)
