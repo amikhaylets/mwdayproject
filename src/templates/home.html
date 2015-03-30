@@ -4,10 +4,11 @@
 
 <h1>Hello Django</h1>
 
-<form method="POST", action=""> 
+<form method="POST", action="", class="form-signin"> 
+	<label for="inputEmail" class="sr-only">Email address</label>
 	{% csrf_token %}
 	{{ form.as_p }}
-<input type='submit', value='Join', class='btn' />
+	<input type='submit', value='Join', class='btn' />
 </form>
 
 
