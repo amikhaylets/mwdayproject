@@ -1,15 +1,30 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+
+
+
+{% block styles %}
+    <style>
+      body {
+        background: url("{% static 'img/background.jpg' %}") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height: 1320px;
+      }
+    </style>
+{% endblock %}
+
+
 
 {% block content %}
+	<h1>Hello Django</h1>
 
-<h1>Hello Django</h1>
-
-<form method="POST", action="", class="form-signin"> 
-	<label for="inputEmail" class="sr-only">Email address</label>
-	{% csrf_token %}
-	{{ form.as_p }}
-	<input type='submit', value='Join', class='btn' />
-</form>
-
-
+	<form method="POST", action="", class="form-signin"> 
+		<label for="inputEmail" class="sr-only">Email address</label>
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type='submit', value='Join', class='btn' />
+	</form>
 {% endblock %}	

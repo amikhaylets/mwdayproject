@@ -33,6 +33,10 @@
 
     <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
 
+    {% block styles %}
+    {% endblock %}
+
+
   </head>
 <!-- NAVBAR
 ================================================== -->
@@ -121,7 +125,7 @@
     <div class="container marketing">
 
       <!-- Three columns of text below the carousel -->
-      <div class="row">
+      <div class="row" style="background-color: white;">
         <div class="col-lg-4">
           <img class="img-circle" src="{% static 'img/fashion1.jpg' %}" alt="Generic placeholder image" width="140" height="140">
           <h2>Модные тенденции</h2>
@@ -139,25 +143,29 @@
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
-      <hr class="featurette-divider"> 
 
-      <div class="container text-center">
+
+      <div class="container text-center" style="margin-top: 80px">
           {% block content %}
           {% endblock %}  
       </div>
 
-      <hr class="featurette-divider">
+
 
       <!-- /END THE FEATURETTES -->
 
 
+
+
+    </div><!-- /.container -->
+
       <!-- FOOTER -->
+    <div class="row" style="background-color: white; margin-top: 110px; height: 210px">  
       <footer>
         <p class="pull-right"><a href="#">Вверх</a></p>
         <p>&copy; 2015 Моя Свадьба</p>
       </footer>
-
-    </div><!-- /.container -->
+    </div>
 
 
     <!-- Bootstrap core JavaScript

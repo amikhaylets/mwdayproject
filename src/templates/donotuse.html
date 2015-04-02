@@ -18,13 +18,17 @@
     
     <style>
       body {
-        background-image: url("{% static 'img/background.jpg' %}");
+        background: url("{% static 'img/background.jpg' %}") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
       }
     </style>
 
 
   </head>
   <body>
-    <img src="{% static 'img/background.jpg' %}">
+    <h1>Hello world!</h1>
   </body>
 </html>
