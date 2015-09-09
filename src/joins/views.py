@@ -71,4 +71,3 @@ def home(request):
 	context = {"form": form}
 	template = "home.html"
 	return render(request, template, context,)
-
