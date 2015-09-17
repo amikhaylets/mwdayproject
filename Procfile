@@ -1,1 +1,0 @@
-web: gunicorn mwday.wsgi
